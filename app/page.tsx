@@ -3,7 +3,8 @@ import { links } from "./_documents/data";
 import Image from "next/image";
 export default function Home() {
   return (
-    <main className="md:mx-10">
+    // USE MEDIA ARBITRARY VALUE WITH MAX-[800PX] AND MIN-[600PX]
+    <main className="md:mx-10 min-[500px]:bg-blue-300  max-[500px]:bg-green-300">
       {/* SET THE MAX WIDTH FOR THE CONTENT IN DESKTOP BREAKPOINT */}
       {/* CONTAINER SET WITH BREAKPOINT MAKE THE MAX-WIDTH:BREAKPOINT */}
       <div className="flex gap-y-5 flex-col items-center justify-center bg-pink-50 xl:max-w-[1200px] xl:mx-auto">
@@ -52,13 +53,15 @@ export default function Home() {
           <div className="flex-1">
             <img className="w-full" src={links[0]} />
           </div>
+          {/* CONTENTS IS A PHANTOM (GHOST ELEMENT) THAT WRAP THE FLEX ITEMS TO STYLE THEM */}
+          <div className="contents [&_div]:animate-bounce">
+            <div className="flex-1">
+              <img className="w-full" src={links[1]} />
+            </div>
 
-          <div className="flex-1">
-            <img className="w-full" src={links[1]} />
-          </div>
-
-          <div className="flex-1">
-            <img className="w-full" src={links[0]} />
+            <div className="flex-1">
+              <img className="w-full" src={links[0]} />
+            </div>
           </div>
         </div>
 
@@ -80,6 +83,39 @@ export default function Home() {
           </span>
           . I am a good developer.
         </p>
+      </div>
+
+      {/* USE TABLE WITH TABLE-AUTO, TABLE-FIXED, TABLE-SPACING, TABLE-COLLAPSE, TABLE-SEPARATE, CAPTION-TOP, CAPTION-BOTTOM */}
+      {/* ALWAYS INDICATE THE WIDTH AND THE COLOR FOR THE BORDER OF THE TABLE AND THE */}
+      <table className="table-auto border-separate border-spacing-2 border border-slate-300 w-[300px]">
+        <caption className="caption-top">caption</caption>
+        <caption className="caption-bottom">caption</caption>
+        <thead>
+          <tr>
+            {/* IF YOU DO NOT INDICATE THE BORDER WIDTH, THERE WILL BE NO BORDER APPEARING */}
+            <th className="text-center border border-slate-500">id</th>
+            <th className="text-center border border-slate-500">Food</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="text-center border border-slate-500">1</td>
+            <td className="text-center border border-slate-500">banana</td>
+          </tr>
+          <tr>
+            <td className="text-center border border-slate-500">2</td>
+            <td className="text-center border border-slate-500">abc</td>
+          </tr>
+        </tbody>
+      </table>
+
+      {/* USE OVERFLOW SCROLL TO ALWAYS SHOW SCROLL BAR AND USE OVERFLOW AUTO TO SHOW SCROLL BAR WHEN NEEDED */}
+      <div className="w-[200px] h-10 flex justify-between overflow-x-auto overflow-y-hidden border border-pink-500 items-center">
+        <div>content</div>
+        <div>content</div>
+        <div>content</div>
+        <div>content</div>
+        <div>content</div>
       </div>
     </main>
   );
