@@ -1,6 +1,34 @@
+/* CUSTOMIZE  H1, H2, H3, P... */
 @tailwind base;
+/* CUSTOMIZE THE TAGS */
+h1 {
+  @apply text-green-300;
+}
+
 @tailwind components;
+input {
+  @apply bg-blue-300;
+}
+/* CUSTOMIZE FOCUS, HOVER, ACTIVE, LINK */
 @tailwind utilities;
+
+/* USE LAYER TO CREATE CUSTOM CLASSES THAT ARE COMPILED TO USE WHEN THEY ARE NEEDED */
+@layer components {
+  .btn-red {
+    /* USE APPLY TO INPUT UTILITY CLASSES */
+    @apply px-4 py-2 inline-block bg-red-300;
+  }
+  .btn-blue {
+    background-color: red;
+  }
+  /* OVERRIDE THE DEFAULT STYLINGS*/
+  /* .card {
+    background-color: theme('colors.white');
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
+  } */
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
